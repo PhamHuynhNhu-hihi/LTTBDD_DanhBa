@@ -104,7 +104,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK && data != null) {
+        // Kiểm tra requestCode để chỉ xử lý kết quả từ Activity đã đăng ký
+        if ((requestCode == 1 || requestCode == 2) && resultCode == RESULT_OK && data != null) {
             String action = data.getStringExtra("action");
             String name = data.getStringExtra("name");
             String phone = data.getStringExtra("phone");
