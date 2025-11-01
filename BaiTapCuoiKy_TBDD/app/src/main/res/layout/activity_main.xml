@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="25dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Liên hệ"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:background="#0085F0"
+        android:textColor="#ffffff"
+        android:gravity="left"
+        android:padding="12dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Tìm kiếm danh bạ" />
+
+        <ImageView
+            android:id="@+id/imgSearch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_search"/>
+    </LinearLayout>
+    <ListView
+        android:id="@+id/listViewContacts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:listSelector="#BEE2FF"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="16dp"
+        app:srcCompat="@drawable/ic_add_contact"
+        app:backgroundTint="#31A1F2"/>
+</LinearLayout>
