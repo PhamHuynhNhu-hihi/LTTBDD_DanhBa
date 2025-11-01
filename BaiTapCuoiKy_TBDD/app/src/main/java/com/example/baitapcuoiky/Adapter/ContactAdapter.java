@@ -13,16 +13,14 @@ import com.example.baitapcuoiky.R;
 import java.util.List;
 
 public class ContactAdapter extends ArrayAdapter<Contact> {
-    private Context context;
     private OnItemClickListener listener;
-
-    public ContactAdapter(Context context, List<Contact> contacts) {
-        super(context, 0, contacts);
-        this.context = context;
-    }
 
     public interface OnItemClickListener {
         void onItemClick(Contact contact);
+    }
+
+    public ContactAdapter(Context context, List<Contact> contacts) {
+        super(context, 0, contacts);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -34,7 +32,7 @@ public class ContactAdapter extends ArrayAdapter<Contact> {
         Contact contact = getItem(position);
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_contact, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_contact, parent, false);
         }
 
         TextView tvName = convertView.findViewById(R.id.tvName);

@@ -16,8 +16,8 @@ public class AddContactActivity extends AppCompatActivity {
     private TextInputEditText edtName, edtPhone, edtNote;
     private Button btnSave;
     private ImageView btnBack;
-    private boolean isEditMode = false;
-    private int contactId = -1;
+    private boolean isEditMode;
+    private int contactId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,39 +41,38 @@ public class AddContactActivity extends AppCompatActivity {
             btnSave.setText("Cập nhật");
         }
 
+        btnBack.setOnClickListener(v -> finish());
 
-        btnBack.setOnClickListener(v -> {
-            finish();
-        });
+        btnSave.setOnClickListener(v -> saveContact());
+    }
 
-        btnSave.setOnClickListener(v -> {
-            String name = edtName.getText().toString().trim();
-            String phone = edtPhone.getText().toString().trim();
-            String note = edtNote.getText().toString().trim();
+    private void saveContact() {
+        String name = edtName.getText().toString().trim();
+        String phone = edtPhone.getText().toString().trim();
+        String note = edtNote.getText().toString().trim();
 
-            if (name.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập họ tên", Toast.LENGTH_SHORT).show();
-                return;
-            }
+        if (name.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập họ tên", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            if (phone.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập số điện thoại", Toast.LENGTH_SHORT).show();
-                return;
-            }
+        if (phone.isEmpty()) {
+            Toast.makeText(this, "Vui lòng nhập số điện thoại", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            if (!phone.matches("\\d{10}")) {
-                Toast.makeText(this, "Chưa đúng định dạng của số điện thoại", Toast.LENGTH_SHORT).show();
-                return;
-            }
+        if (!phone.matches("\\d{10}")) {
+            Toast.makeText(this, "Số điện thoại phải gồm 10 chữ số", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-            Intent resultIntent = new Intent();
-            resultIntent.putExtra("action", isEditMode ? "edit" : "add");
-            resultIntent.putExtra("contactId", contactId);
-            resultIntent.putExtra("name", name);
-            resultIntent.putExtra("phone", phone);
-            resultIntent.putExtra("note", note);
-            setResult(RESULT_OK, resultIntent);
-            finish();
-        });
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("action", isEditMode ? "edit" : "add");
+        resultIntent.putExtra("contactId", contactId);
+        resultIntent.putExtra("name", name);
+        resultIntent.putExtra("phone", phone);
+        resultIntent.putExtra("note", note);
+        setResult(RESULT_OK, resultIntent);
+        finish();
     }
 }

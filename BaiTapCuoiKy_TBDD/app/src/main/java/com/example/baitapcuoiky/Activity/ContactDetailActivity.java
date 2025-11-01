@@ -12,7 +12,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.baitapcuoiky.Model.Contact;
 import com.example.baitapcuoiky.R;
 
 public class ContactDetailActivity extends AppCompatActivity {
@@ -21,7 +20,8 @@ public class ContactDetailActivity extends AppCompatActivity {
     private LinearLayout layoutNote;
     private Button btnCallDetail, btnEditDetail, btnDeleteDetail;
     private ImageView btnBack;
-    private Contact contact;
+    private int contactId;
+    private String name, phone, note;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +40,16 @@ public class ContactDetailActivity extends AppCompatActivity {
 
         // Lấy dữ liệu từ Intent
         Intent intent = getIntent();
-        int contactId = intent.getIntExtra("contactId", -1);
-        String name = intent.getStringExtra("name");
-        String phone = intent.getStringExtra("phone");
-        String note = intent.getStringExtra("note");
+        contactId = intent.getIntExtra("contactId", -1);
+        name = intent.getStringExtra("name");
+        phone = intent.getStringExtra("phone");
+        note = intent.getStringExtra("note");
 
-        contact = new Contact(contactId, name, phone, note);
-
-        // Hiển thị thông tin
+        //Hiển thị thông tin
         tvContactName.setText(name);
         tvContactPhone.setText(phone);
-
         // Hiển thị ghi chú
+
         if (note != null && !note.isEmpty()) {
             tvContactNote.setText(note);
             layoutNote.setVisibility(View.VISIBLE);
@@ -59,19 +57,16 @@ public class ContactDetailActivity extends AppCompatActivity {
             layoutNote.setVisibility(View.GONE);
         }
 
-        // Xử lý nút Back
-        btnBack.setOnClickListener(v -> {
-            finish();
-        });
-
+        btnBack.setOnClickListener(v -> finish());
         // Xử lý nút Gọi
+
         btnCallDetail.setOnClickListener(v -> {
             Intent callIntent = new Intent(Intent.ACTION_DIAL);
             callIntent.setData(Uri.parse("tel:" + phone));
             startActivity(callIntent);
         });
-
         // Xử lý nút Sửa
+
         btnEditDetail.setOnClickListener(v -> {
             Intent editIntent = new Intent(ContactDetailActivity.this, AddContactActivity.class);
             editIntent.putExtra("contactId", contactId);
@@ -81,8 +76,8 @@ public class ContactDetailActivity extends AppCompatActivity {
             editIntent.putExtra("isEdit", true);
             startActivityForResult(editIntent, 2);
         });
-
         // Xử lý nút Xóa
+
         btnDeleteDetail.setOnClickListener(v -> {
             new AlertDialog.Builder(this)
                     .setTitle("Xác nhận xóa")
@@ -102,9 +97,8 @@ public class ContactDetailActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
             // Cập nhật lại thông tin sau khi sửa
+        if (requestCode == 2 && resultCode == RESULT_OK && data != null) {
             setResult(RESULT_OK, data);
             finish();
         }

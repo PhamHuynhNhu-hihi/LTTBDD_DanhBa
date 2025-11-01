@@ -4,7 +4,8 @@ public class Contact {
     private int id;
     private String name;
     private String phone;
-    private String note; // Ghi chú
+    private String note;
+
     public Contact(int id, String name, String phone, String note) {
         this.id = id;
         this.name = name;
