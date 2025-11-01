@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:src="@drawable/ic_contact_call"/>
+        android:src="@drawable/ic_contact_avt"/>
 
     <LinearLayout
         android:orientation="vertical"

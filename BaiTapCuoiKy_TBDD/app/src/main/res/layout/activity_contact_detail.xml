@@ -41,7 +41,7 @@
             android:layout_height="130dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:src="@drawable/ic_contact_call"/>
+            android:src="@drawable/ic_contact_avt"/>
 
         <!-- Tên -->
         <TextView
