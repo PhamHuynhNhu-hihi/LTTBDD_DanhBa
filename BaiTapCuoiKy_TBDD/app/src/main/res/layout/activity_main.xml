@@ -9,12 +9,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Liên hệ"
+        android:text="LIÊN HỆ"
         android:textSize="30dp"
         android:textStyle="bold"
         android:background="#0085F0"
         android:textColor="#ffffff"
-        android:gravity="left"
+        android:gravity="center"
         android:padding="12dp"/>
     <LinearLayout
         android:layout_width="match_parent"
