@@ -1,4 +1,4 @@
-package com.example.baitapcuoiky;
+package com.example.baitapcuoiky.Model;
 
 public class Contact {
     private int id;

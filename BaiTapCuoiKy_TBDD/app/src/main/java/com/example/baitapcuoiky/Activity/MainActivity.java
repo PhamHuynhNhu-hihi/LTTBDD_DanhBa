@@ -1,4 +1,4 @@
-package com.example.baitapcuoiky;
+package com.example.baitapcuoiky.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.baitapcuoiky.Model.Contact;
+import com.example.baitapcuoiky.Adapter.ContactAdapter;
+import com.example.baitapcuoiky.sqlite.DatabaseHelper;
+import com.example.baitapcuoiky.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;

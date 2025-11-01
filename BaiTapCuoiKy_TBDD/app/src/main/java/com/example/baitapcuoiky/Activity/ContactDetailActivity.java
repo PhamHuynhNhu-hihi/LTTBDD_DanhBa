@@ -1,4 +1,4 @@
-package com.example.baitapcuoiky;
+package com.example.baitapcuoiky.Activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.baitapcuoiky.Model.Contact;
+import com.example.baitapcuoiky.R;
 
 public class ContactDetailActivity extends AppCompatActivity {
 

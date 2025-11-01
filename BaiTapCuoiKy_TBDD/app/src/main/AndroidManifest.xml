@@ -12,7 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaiTapCuoiKy">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity"
+            android:exported="false"
+            android:label="@string/title_activity_"
+            android:theme="@style/Theme.BaiTapCuoiKy" />
+        <activity
+            android:name=".Activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +26,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AddContactActivity"
+            android:name=".Activity.AddContactActivity"
             android:exported="false" />
         <activity
-            android:name=".ContactDetailActivity"
+            android:name=".Activity.ContactDetailActivity"
             android:exported="false" />
     </application>
 
